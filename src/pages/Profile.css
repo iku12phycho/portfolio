@@ -1,0 +1,18 @@
+.box{
+  margin: 0 8px;
+}
+
+.question{
+  padding-left: 2px;
+  text-decoration: black underline;
+}
+.answer{
+  padding-left: 2px;
+  padding-top: 7px;
+}
+li{
+  font-size: medium;
+}
+.splitRow{
+  border-bottom: 1px solid black;
+}
