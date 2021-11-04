@@ -60,7 +60,7 @@ function Profile(){
             }}>
             <Avatar 
             alt="iku12phycho's icon"
-            src={process.env.PUBLIC_URL+'/ei.png'}
+            src="https://github.com/iku12phycho/portfolio/blob/gh-pages/ei.png?raw=true"
             sx={{ width: 100,
                   height: 100,
                   bgcolor: 'white'}} />

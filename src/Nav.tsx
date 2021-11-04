@@ -13,15 +13,15 @@ type headerItem = {
 
 const headerList: headerItem[] =[
   {
-    url: '/',
+    url: '/portfolio/',
     title: 'HOME',
   },
   {
-    url: '/Profile',
+    url: '/portfolio/Profile',
     title: 'PROFILE',
   },
   {
-    url: '/Skill',
+    url: '/portfolio/Skill',
     title: 'SKILL',
   },
 ];
