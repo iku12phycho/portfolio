@@ -13,15 +13,18 @@ function App() {
       <Nav />
       <Box className='App-header'>
           <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/portfolio/">
+              <Home />
+            </Route>
             <Route exact path="/portfolio/Profile">
               <Profile />
             </Route>
           </Switch>
             <Route exact path="/portfolio/Skill">
               <Skill />
-            </Route>
-            <Route path="/">
-              <Home />
             </Route>
       </Box>
     </div>
