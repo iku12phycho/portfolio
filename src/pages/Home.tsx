@@ -18,8 +18,8 @@ function Home(){
             <Box>
             <Typography variant="body1" gutterBottom component="div">
               iku12phychoのポートフォリオへようこそ。<br/>
-              ここでは簡単にではありますが、プロフィールとiku12phychoのスキルを一覧に挙げています。<br/>
-              なお、作品・連絡先は現在記載しておりません。ご了承ください。
+              ここでは簡単にではありますが、プロフィールと開発スキル一覧に紹介しています。<br/>
+              なお、連絡先は現在記載しておりません。ご了承ください。
             </Typography>
             </Box>
           </Box>

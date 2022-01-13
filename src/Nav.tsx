@@ -24,20 +24,24 @@ const headerList: headerItem[] =[
     url: '/portfolio/Skill',
     title: 'SKILL',
   },
+  {
+    url: '/portfolio/Work',
+    title: 'WORK',
+  },
 ];
 
 function Nav(){
   const navs = headerList.map((item, i) =>{
     return(
       <Grid container sx={{justifyContent: {xs: 'flext-start', sm: 'center'}}}>
-        <Grid item xs={4} key={i.toString()} className='nav-item'>
+        <Grid item xs={3} key={i.toString()} className='nav-item'>
           <Button color="inherit" component={Link} to={item.url}>{item.title}</Button>
         </Grid>
       </Grid>
     );
   });
   return(
-    <AppBar position="static">
+    <AppBar className="positionFixed">
       <Toolbar>
           {navs}
       </Toolbar>
