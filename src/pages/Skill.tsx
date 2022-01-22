@@ -7,6 +7,7 @@ import { Grid } from "@mui/material";
 import { SkillItem } from "../Types";
 import './Skill.css';
 import { Box } from "@mui/system";
+import { useInView, IntersectionOptions } from 'react-intersection-observer';
 
 const skillList: SkillItem[] = [
     {
@@ -75,7 +76,7 @@ const skillList: SkillItem[] = [
     {
       id: 10,
       title: 'nodeJS',
-      level: 2,
+      level: 3,
       memo: 'フロントエンドでもJSを使用しているため、基本問題なく使用できます。',
       iconUrl: 'https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_node_icon_130301.png'
     },
@@ -96,7 +97,7 @@ const skillList: SkillItem[] = [
     {
       id: 13,
       title: 'docker',
-      level: 1,
+      level: 2,
       memo: '自宅での学習の際に使用しています。',
       iconUrl: 'https://cdn.icon-icons.com/icons2/2415/PNG/128/docker_plain_logo_icon_146554.png'
     },
@@ -131,34 +132,62 @@ const skillList: SkillItem[] = [
     {
       id: 18,
       title: 'Heroku',
-      level: 1,
+      level: 2,
       memo: '個人の開発でデプロイ先に活用しています。',
       iconUrl: 'https://cdn.icon-icons.com/icons2/2108/PNG/128/heroku_icon_130912.png'
     },
 ];
 
+type Props = {
+  skill: SkillItem,
+  inViewOptions: IntersectionOptions
+}
+
+function SkillCard(props: Props){
+  const [ref, inView] = useInView(props.inViewOptions);
+  return (
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={4}
+      mt={1}
+      mb={1}
+      ref={ref}
+      className={`skillCard ${inView ? "in-view" : ""}`}
+      >
+      <Card 
+        variant="outlined"
+        className="card"
+        >
+        <CardContent>
+          <Typography variant="h5" component="div">
+            {props.skill.title}
+          </Typography>
+          <Rating name="read-only" value={props.skill.level} readOnly />
+          <Typography variant="body2">
+            {props.skill.memo}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+  )
+}
 
 function Skill(){
+  const inViewOptions = {
+    root: null,
+    rootMargin: '0px 0px -75px 0px',
+    triggerOnce: true
+  };
   const skillItems = skillList.map((skill, i) => {
     return(
-      <Grid item xs={12} sm={6} md={4} mt={2} key={skill.id.toString()}>
-        <Card variant="outlined" className="card">
-          <CardContent>
-            <Typography variant="h5" component="div">
-              {skill.title}
-            </Typography>
-            <Rating name="read-only" value={skill.level} readOnly />
-            <Typography variant="body2">
-              {skill.memo}
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
+      <SkillCard skill={skill} key={skill.id} inViewOptions={inViewOptions} />
     )
   });
   return(
     <div>
-      <Box>
+      <Box mt={5} mb={5}>
         <Typography variant='h2'>
           My Skills
         </Typography>
@@ -166,7 +195,7 @@ function Skill(){
           自身のスキルを一覧で挙げました。それぞれ最大値を5として習熟度を評価しています。
         </Typography>
       </Box>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} mb={5}>
         {skillItems}
       </Grid>
     </div>

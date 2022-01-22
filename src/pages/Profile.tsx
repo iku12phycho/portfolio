@@ -4,23 +4,27 @@ import React from "react";
 import './Profile.css';
 
 type QandA = {
+  id: number;
   question: string;
   answer: string;
 };
 
 const questions: QandA[] = [
   {
+    id: 1,
     question: 'なぜエンジニアになったの？',
     answer: 'きっかけはたまたま異動でエンジニア部署に配属されたためです。その後、この分野の面白さを感じそのまま続けています。',
   },
   {
+    id: 2,
     question: 'これまでのエンジニア経験の中で苦労したことは？',
     answer: 'ユーザーの要望から要件定義をし、開発提案をすることが大変でした。\
-            ユーザーはなんとなく「もっとよくなればいいな」という曖昧な希望しかないことが多いため、\
-            具体的にそれを形にして話を進めることに苦労しました。\
-            非エンジニアと関わる際に相手に伝わる言葉でなおかつ、質問がしやすい形式（クローズドな質問等）で話を進めることに気を付けました。',
+    ユーザーはなんとなく「もっとよくなればいいな」という曖昧な希望しかないことが多いため、\
+    具体的にそれを形にして話を進めることに苦労しました。\
+    非エンジニアと関わる際に相手に伝わる言葉でなおかつ、質問がしやすい形式（クローズドな質問等）で話を進めることに気を付けました。',
   },
   {
+    id: 3,
     question: '今後どういうことをしていきたい？',
     answer: '現職がレガシーな環境であるため、特にモダンな開発に弱いです。まずは現在の流れをつかんでいきたいです。\
             また現在、フロントではUI/UX、バックではクラス設計、テーブル設計などを一人で悩んでいることが多いです。\
@@ -31,7 +35,7 @@ const questions: QandA[] = [
 function Profile(){
   const qaList = questions.map((item, i) => {
     return(
-      <div key={i}>
+      <div key={item.id}>
         <Grid item xs={12}>
           <Typography variant="h6" gutterBottom component="div" className="question">
             Q. {item.question}
@@ -46,7 +50,7 @@ function Profile(){
     );
   });
   return(
-    <Grid container spacing={0.5}>
+    <Grid container spacing={0.5} mt={5} mb={5}>
       <Grid item xs={12}>
           <Typography variant="h2" gutterBottom component="div">
             About Me
@@ -77,7 +81,7 @@ function Profile(){
         </Grid>
         <Grid item xs={12}>
             <Typography variant="body1" gutterBottom component="div" className="answer">
-              2年半
+              2年半～3年未満
             </Typography>
         </Grid>
         <Grid item xs={12}>

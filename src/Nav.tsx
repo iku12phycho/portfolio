@@ -7,24 +7,29 @@ import { Grid } from '@mui/material';
 import './Nav.css';
 
 type headerItem = {
+  id: number;
   url: string;
   title: string;
 }
 
 const headerList: headerItem[] =[
   {
+    id: 1,
     url: '/portfolio/',
     title: 'HOME',
   },
   {
+    id: 2,
     url: '/portfolio/Profile',
     title: 'PROFILE',
   },
   {
+    id: 3,
     url: '/portfolio/Skill',
     title: 'SKILL',
   },
   {
+    id: 4,
     url: '/portfolio/Work',
     title: 'WORK',
   },
@@ -33,8 +38,8 @@ const headerList: headerItem[] =[
 function Nav(){
   const navs = headerList.map((item, i) =>{
     return(
-      <Grid container sx={{justifyContent: {xs: 'flext-start', sm: 'center'}}}>
-        <Grid item xs={3} key={i.toString()} className='nav-item'>
+      <Grid key={item.id} container sx={{justifyContent: {xs: 'flext-start', sm: 'center'}}}>
+        <Grid item xs={3} className='nav-item'>
           <Button color="inherit" component={Link} to={item.url}>{item.title}</Button>
         </Grid>
       </Grid>

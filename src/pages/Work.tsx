@@ -19,7 +19,7 @@ const workList: WorkItem[] = [
 function Work(){
   const workItems = workList.map((work, i) => {
     return(
-    <Grid item xs={12} key={work.id.toString()}>
+    <Grid item xs={12} key={work.id}>
       <Card variant="outlined" className="card">
         <CardContent>
           <Typography variant="h5" component="div">
@@ -29,7 +29,15 @@ function Work(){
             {work.description}
           </Typography>
           <CardActions>
-            <Button variant="contained" href={work.url}>見に行く</Button>
+            <Button 
+              variant="contained"
+              size="small"
+              href={work.url}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+            見に行く
+            </Button>
           </CardActions>
         </CardContent>
       </Card>

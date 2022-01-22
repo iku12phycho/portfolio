@@ -1,12 +1,12 @@
 import React from "react";
 import { Grid, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
+import './Home.css';
 
 function Home(){
   return(
     <Grid container>
-      <Grid item xs={1}></Grid>
-      <Grid item xs={10}>
+      <Grid item>
           <Box
           sx={{
             height: {xs :200, sm: 350},
@@ -24,7 +24,20 @@ function Home(){
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={1}></Grid>
+        <div className="background">
+          <ul className="floats">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
     </Grid>
   );
 }
