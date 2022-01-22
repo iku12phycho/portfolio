@@ -5,7 +5,7 @@ import './Home.css';
 
 function Home(){
   return(
-    <Grid container>
+    <Grid container direction="column" alignItems="center">
       <Grid item>
           <Box
           sx={{
