@@ -12,6 +12,7 @@ const workList: WorkItem[] = [
     id: 1,
     title: 'シェアTODO',
     description: 'ログイン機能を持たせたTODOリストを作成しました。作成するタスクを設定次第で公開し、他者と共有することができます。',
+    skills: 'TypeScript, BootStrap, express(Node.js), docker',
     url: 'https://iku12phycho-opentodo-as7e9tg84.herokuapp.com/'
   }
 ]
@@ -27,6 +28,9 @@ function Work(){
           </Typography>
           <Typography variant="body2">
             {work.description}
+          </Typography>
+          <Typography variant="body2">
+            使用言語等：{work.skills}
           </Typography>
           <CardActions>
             <Button 

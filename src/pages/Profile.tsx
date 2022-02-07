@@ -12,19 +12,14 @@ type QandA = {
 const questions: QandA[] = [
   {
     id: 1,
-    question: 'なぜエンジニアになったの？',
-    answer: 'きっかけはたまたま異動でエンジニア部署に配属されたためです。その後、この分野の面白さを感じそのまま続けています。',
-  },
-  {
-    id: 2,
     question: 'これまでのエンジニア経験の中で苦労したことは？',
     answer: 'ユーザーの要望から要件定義をし、開発提案をすることが大変でした。'+
     'ユーザーはなんとなく「もっとよくなればいいな」という曖昧な希望しかないことが多いため、'+
     '具体的にそれを形にして話を進めることに苦労しました。'+
-    '非エンジニアと関わる際に相手に伝わる言葉でなおかつ、質問がしやすい形式（クローズドな質問等）で話を進めることに気を付けました。',
+    'ユーザーの希望から具体的な課題点を見出すこと、非エンジニアの相手でも伝わる言葉でなおかつ、質問がしやすい形式（クローズドな質問等）で話を進めることに気を付けました。',
   },
   {
-    id: 3,
+    id: 2,
     question: '今後どういうことをしていきたい？',
     answer: '現職がレガシーな環境であるため、特にモダンな開発に弱いです。まずは現在の流れをつかんでいきたいです。'+
             'また現在、フロントではUI/UX、バックではクラス設計、テーブル設計などを一人で悩んでいることが多いです。'+
@@ -35,22 +30,22 @@ const questions: QandA[] = [
 function Profile(){
   const qaList = questions.map((item, i) => {
     return(
-      <div key={item.id}>
-        <Grid item xs={12}>
+      <Grid container justifyContent='center' key={item.id}>
+        <Grid item xs={11} md={10}>
           <Typography variant="h6" gutterBottom component="div" className="question">
             Q. {item.question}
           </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={11} md={10}>
             <Typography variant="body1" gutterBottom component="div" className="answer">
               A.{item.answer}
             </Typography>
         </Grid>
-      </div>
+      </Grid>
     );
   });
   return(
-    <Grid container spacing={0.5} mt={5} mb={5}>
+    <Grid container justifyContent="center" spacing={0.5} mt={5} mb={5}>
       <Grid item xs={12}>
           <Typography variant="h2" gutterBottom component="div">
             About Me
@@ -109,7 +104,7 @@ function Profile(){
           </ul>
       </Grid>
       <Grid item xs={12} className="splitRow"></Grid>
-      <Grid item xs={12} className="box">
+      <Grid item xs={10} className="box">
           <Typography variant="h5" gutterBottom component="div">
             Q&A
           </Typography>
